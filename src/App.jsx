@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Todo from './components/Todo';
 import TodoForm from './components/TodoForm';
 import Search from './components/Search';
+import VideoEmbed from './components/VideoEmbed';
 
 import './App.css';
 
@@ -13,18 +14,21 @@ function App() {
       text: "Criar funcionalidade x no sistema",
       category: "Trabalho",
       isCompleted: false,
+      imageUrl: "https://loremflickr.com/50/50/Trabalho"
     },
     {
       id: 2,
       text: "Ir para a academia",
       category: "Pessoal",
       isCompleted: false,
+      imageUrl: "https://loremflickr.com/50/50/Pessoal"
     },
     {
       id: 3,
       text: "Estudar React",
       category: "Estudos",
       isCompleted: false,
+      imageUrl: "https://loremflickr.com/50/50/Estudos"
     },
   ])
 
@@ -38,11 +42,13 @@ function App() {
         text,
         category,
         isCompleted: false,
+        imageUrl: `https://loremflickr.com/50/50/${category}`
       },
     ];
 
     setTodos(newTodos);
   };
+
   const removeTodo = (id) => {
     const newTodos = [...todos];
     const filteredTodos = newTodos.filter((todo) =>
@@ -68,6 +74,7 @@ function App() {
           ))}
       </div>
       <TodoForm addTodo={addTodo} />
+      <VideoEmbed />
     </div>
   );
 }
